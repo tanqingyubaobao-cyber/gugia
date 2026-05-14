@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUGIA - 全球USDT游戏娱乐诚信协会</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --border: #232332;
+            --border-light: #2a2a3a;
+            --text-primary: #f1f1f6;
+            --text-secondary: #a1a1b0;
+            --text-muted: #6b6b7d;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-400: #60a5fa;
+            --emerald-400: #34d399;
+            --emerald-500: #10b981;
+            --emerald-500-10: rgba(16, 185, 129, 0.1);
+            --red-400: #f87171;
+            --red-500: #ef4444;
+            --amber-400: #fbbf24;
+            --amber-500: #f59e0b;
+            --cyan-400: #22d3ee;
+            --cyan-500: #06b6d4;
+            --radius-sm: 12px;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-glow-blue: 0 0 40px rgba(59, 130, 246, 0.15);
+            --shadow-glow-emerald: 0 0 40px rgba(16, 185, 129, 0.15);
+            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+        }
+
+        /* ============ SCROLLBAR ============ */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-light);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3a3a4d;
+        }
+
+        /* ============ NAVBAR ============ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .navbar-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+        .navbar-logo {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+            flex-shrink: 0;
+        }
+        .navbar-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+        .navbar-subtitle {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .navbar-links a,
+        .navbar-links button {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 999px;
+            transition: var(--transition);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .navbar-links a:hover,
+        .navbar-links button:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .navbar-links a.active,
+        .navbar-links button.active {
+            color: #fff;
+            background: rgba(59, 130, 246, 0.2);
+            font-weight: 600;
+        }
+        .navbar-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            padding: 0 24px 20px;
+            border-top: 1px solid var(--border);
+        }
+        .mobile-menu a,
+        .mobile-menu button {
+            display: block;
+            padding: 14px 16px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            text-align: left;
+            width: 100%;
+            transition: var(--transition);
+        }
+        .mobile-menu a:hover,
+        .mobile-menu button:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .mobile-menu a.active,
+        .mobile-menu button.active {
+            color: #fff;
+            background: rgba(59, 130, 246, 0.15);
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            .navbar-links {
+                display: none;
+            }
+            .navbar-hamburger {
+                display: block;
+            }
+            .mobile-menu.open {
+                display: flex;
+            }
+        }
+
+        /* ============ MAIN CONTENT ============ */
+        .main-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            min-height: 70vh;
+        }
+        .page {
+            display: none;
+            animation: fadeSlideIn 0.4s ease;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============ HERO ============ */
+        .hero-section {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 20px;
+            margin-bottom: 24px;
+            font-size: 0.875rem;
+            color: var(--emerald-400);
+            font-weight: 500;
+        }
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--emerald-400);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(52, 211, 153, 0);
+            }
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 30%, #a1a1b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #000;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 18px 36px;
+            border-radius: 999px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 48px rgba(255, 255, 255, 0.2);
+            background: #f0f0f0;
+        }
+        .btn-primary .arrow {
+            transition: transform 0.3s ease;
+        }
+        .btn-primary:hover .arrow {
+            transform: translateX(4px);
+        }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue-600);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 14px 28px;
+            border-radius: 999px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #3b7df6;
+            box-shadow: var(--shadow-glow-blue);
+        }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 14px 28px;
+            border-radius: 999px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1.5px solid var(--border-light);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* ============ CARDS GRID ============ */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            text-align: center;
+            transition: all 0.35s ease;
+            cursor: default;
+        }
+        .feature-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow-blue);
+        }
+        .feature-card .icon-wrap {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ============ VERIFY PAGE ============ */
+        .verify-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        .verify-input-row {
+            display: flex;
+            gap: 12px;
+        }
+        .verify-input {
+            flex: 1;
+            background: #0a0a0f;
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 16px 20px;
+            font-size: 1.05rem;
+            color: #fff;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition);
+        }
+        .verify-input:focus {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+        .verify-input::placeholder {
+            color: var(--text-muted);
+        }
+        .verify-btn {
+            background: var(--blue-600);
+            color: #fff;
+            border: none;
+            padding: 16px 32px;
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: inherit;
+            transition: var(--transition);
+            white-space: nowrap;
+            min-width: 100px;
+        }
+        .verify-btn:hover {
+            background: #3b7df6;
+        }
+        .verify-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .result-card {
+            margin-top: 24px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            animation: fadeSlideIn 0.4s ease;
+        }
+        .result-card.certified {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.04);
+        }
+        .result-card.blacklisted {
+            border-color: rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.04);
+        }
+        .result-card.not-found {
+            border-color: rgba(251, 191, 36, 0.3);
+            background: rgba(251, 191, 36, 0.04);
+        }
+        .result-icon-lg {
+            font-size: 56px;
+            margin-bottom: 8px;
+        }
+        .badge-level {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--emerald-400);
+            padding: 4px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .result-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .result-meta span {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ============ TABLE ============ */
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            font-size: 0.9rem;
+        }
+        th {
+            background: var(--bg-secondary);
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.015);
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .status-badge.safe {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--emerald-400);
+        }
+        .status-badge.danger {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--red-400);
+        }
+        .status-badge.warning {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--amber-400);
+        }
+
+        /* ============ FORMS ============ */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.01em;
+        }
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            background: #0a0a0f;
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            font-size: 1rem;
+            color: #fff;
+            font-family: inherit;
+            outline: none;
+            transition: var(--transition);
+            resize: vertical;
+        }
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
+        }
+        .form-textarea {
+            min-height: 120px;
+        }
+        .form-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b6b7d' viewBox='0 0 16 16'%3E%3Cpath d='M8 10.5L3.5 6h9z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+        .form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 36px 40px;
+            max-width: 680px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 600px) {
+            .form-card {
+                padding: 24px 20px;
+            }
+            .verify-input-row {
+                flex-direction: column;
+            }
+            .verify-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* ============ TOAST ============ */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            pointer-events: none;
+        }
+        .toast {
+            pointer-events: auto;
+            background: #1c1c28;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 14px 22px;
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.9rem;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+            animation: toastIn 0.35s ease, toastOut 0.35s ease 2.5s forwards;
+            text-align: center;
+            max-width: 90vw;
+        }
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes toastOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-16px);
+            }
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            background: var(--bg-secondary);
+        }
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer a:hover {
+            color: #fff;
+        }
+
+        /* ============ PAGE HEADER ============ */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+        }
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <div class="navbar-brand" onclick="navigateTo('home')">
+                <div class="navbar-logo">🛡️</div>
+                <div>
+                    <div class="navbar-title">GUGIA</div>
+                    <div class="navbar-subtitle">全球USDT游戏娱乐诚信协会</div>
+                </div>
+            </div>
+            <div class="navbar-links" id="navLinks">
+                <button onclick="navigateTo('verify')" data-page="verify">🔍 认证查询</button>
+                <button onclick="navigateTo('certified')" data-page="certified">✅ 已认证平台</button>
+                <button onclick="navigateTo('blacklist')" data-page="blacklist">🚫 黑名单</button>
+                <button onclick="navigateTo('report')" data-page="report">📢 举报中心</button>
+                <button onclick="navigateTo('apply')" data-page="apply">📝 申请认证</button>
+                <button onclick="navigateTo('about')" data-page="about">ℹ️ 关于我们</button>
+            </div>
+            <button class="navbar-hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <button onclick="navigateTo('verify'); closeMobileMenu();" data-page="verify">🔍 认证查询</button>
+            <button onclick="navigateTo('certified'); closeMobileMenu();" data-page="certified">✅ 已认证平台</button>
+            <button onclick="navigateTo('blacklist'); closeMobileMenu();" data-page="blacklist">🚫 黑名单</button>
+            <button onclick="navigateTo('report'); closeMobileMenu();" data-page="report">📢 举报中心</button>
+            <button onclick="navigateTo('apply'); closeMobileMenu();" data-page="apply">📝 申请认证</button>
+            <button onclick="navigateTo('about'); closeMobileMenu();" data-page="about">ℹ️ 关于我们</button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- HOME PAGE -->
+        <div class="page active" id="page-home">
+            <div class="hero-section">
+                <div class="hero-badge">
+                    <span class="dot"></span> 行业自律 · 玩家保护
+                </div>
+                <h1 class="hero-title">让每一位玩家<br>远离杀猪盘</h1>
+                <p class="hero-subtitle">查询任意USDT娱乐平台是否经过GUGIA认证<br>保护您的数字资产安全，从验证开始</p>
+                <button class="btn-primary" onclick="navigateTo('verify')">
+                    立即查询平台认证状态
+                    <span class="arrow">→</span>
+                </button>
+            </div>
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="icon-wrap">🛡️</div>
+                    <h3>严格认证</h3>
+                    <p>KYC实名核验 + Provably Fair公平性验证 + 链上资金储备审计，三重保障</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrap">👥</div>
+                    <h3>玩家保护</h3>
+                    <p>公开黑名单数据库 + 一键举报机制 + 纠纷调解通道，全方位守护玩家权益</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrap">🔍</div>
+                    <h3>透明公开</h3>
+                    <p>所有认证审核、信用评分、处罚记录全程上链公示，接受全社会监督</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERIFY PAGE -->
+        <div class="page" id="page-verify">
+            <div class="page-header">
+                <h1>🔍 平台认证查询</h1>
+                <p>输入平台域名或名称，立即验证是否可信</p>
+            </div>
+            <div class="verify-box">
+                <div class="verify-input-row">
+                    <input type="text" class="verify-input" id="verifyQuery" placeholder="例如：example.com 或 LuckyBet" onkeydown="if(event.key==='Enter')handleVerify()">
+                    <button class="verify-btn" id="verifyBtn" onclick="handleVerify()">查询</button>
+                </div>
+                <div id="verifyResult"></div>
+            </div>
+        </div>
+
+        <!-- CERTIFIED PAGE -->
+        <div class="page" id="page-certified">
+            <div class="page-header">
+                <h1>✅ 已认证平台</h1>
+                <p>以下平台已通过GUGIA严格审核，可放心游戏</p>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>平台名称</th>
+                            <th>域名</th>
+                            <th>认证等级</th>
+                            <th>信用评分</th>
+                            <th>最近审计</th>
+                            <th>状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Stake.com</strong></td>
+                            <td>stake.com</td>
+                            <td>🏅 Diamond</td>
+                            <td>98/100</td>
+                            <td>2026-05-10</td>
+                            <td><span class="status-badge safe">已认证</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rollbit</strong></td>
+                            <td>rollbit.com</td>
+                            <td>🥇 Gold</td>
+                            <td>94/100</td>
+                            <td>2026-05-08</td>
+                            <td><span class="status-badge safe">已认证</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>BC.Game</strong></td>
+                            <td>bc.game</td>
+                            <td>🥇 Gold</td>
+                            <td>91/100</td>
+                            <td>2026-05-05</td>
+                            <td><span class="status-badge safe">已认证</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cloudbet</strong></td>
+                            <td>cloudbet.com</td>
+                            <td>🥈 Silver</td>
+                            <td>87/100</td>
+                            <td>2026-04-28</td>
+                            <td><span class="status-badge safe">已认证</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thunderpick</strong></td>
+                            <td>thunderpick.io</td>
+                            <td>🥈 Silver</td>
+                            <td>85/100</td>
+                            <td>2026-04-22</td>
+                            <td><span class="status-badge safe">已认证</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Duelbits</strong></td>
+                            <td>duelbits.com</td>
+                            <td>🥉 Bronze</td>
+                            <td>80/100</td>
+                            <td>2026-04-15</td>
+                            <td><span class="status-badge warning">审核中</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- BLACKLIST PAGE -->
+        <div class="page" id="page-blacklist">
+            <div class="page-header">
+                <h1>🚫 黑名单公示</h1>
+                <p>以下平台存在严重违规行为，已被永久列入黑名单，请远离</p>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>平台名称</th>
+                            <th>域名</th>
+                            <th>违规类型</th>
+                            <th>投诉数量</th>
+                            <th>列入日期</th>
+                            <th>状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ScamBet</strong></td>
+                            <td>scambet-eth.com</td>
+                            <td>资金诈骗 / 拒绝提现</td>
+                            <td>1,247</td>
+                            <td>2026-03-15</td>
+                            <td><span class="status-badge danger">永久拉黑</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>FakeWin</strong></td>
+                            <td>fakewin-casino.net</td>
+                            <td>操纵游戏结果</td>
+                            <td>893</td>
+                            <td>2026-02-20</td>
+                            <td><span class="status-badge danger">永久拉黑</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>RugPull Games</strong></td>
+                            <td>rugpullgames.io</td>
+                            <td>卷款跑路 / Rug Pull</td>
+                            <td>2,105</td>
+                            <td>2026-01-08</td>
+                            <td><span class="status-badge danger">永久拉黑</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>PhishCasino</strong></td>
+                            <td>phish-casino.click</td>
+                            <td>钓鱼攻击 / 窃取私钥</td>
+                            <td>567</td>
+                            <td>2025-12-10</td>
+                            <td><span class="status-badge danger">永久拉黑</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- REPORT PAGE -->
+        <div class="page" id="page-report">
+            <div class="page-header">
+                <h1>📢 举报中心</h1>
+                <p>遇到欺诈平台？立即举报，保护更多玩家</p>
+            </div>
+            <div class="form-card">
+                <form id="reportForm" onsubmit="handleReportSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label">平台名称 *</label>
+                        <input type="text" class="form-input" required placeholder="被举报平台的名称">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">平台域名 *</label>
+                        <input type="text" class="form-input" required placeholder="例如：scam-site.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">违规类型 *</label>
+                        <select class="form-select" required>
+                            <option value="">请选择违规类型</option>
+                            <option>资金诈骗 / 拒绝提现</option>
+                            <option>操纵游戏结果</option>
+                            <option>卷款跑路 / Rug Pull</option>
+                            <option>钓鱼攻击 / 窃取信息</option>
+                            <option>虚假宣传</option>
+                            <option>其他违规行为</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">详细描述 *</label>
+                        <textarea class="form-textarea" required placeholder="请详细描述您的遭遇，包括时间、金额、交易哈希等..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">您的联系方式（可选）</label>
+                        <input type="text" class="form-input" placeholder="邮箱或Telegram，便于我们跟进">
+                    </div>
+                    <button type="submit" class="btn-secondary" style="width:100%;justify-content:center;font-size:1.05rem;padding:16px;">
+                        📤 提交举报
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- APPLY PAGE -->
+        <div class="page" id="page-apply">
+            <div class="page-header">
+                <h1>📝 申请认证</h1>
+                <p>成为GUGIA认证平台，赢得玩家信任</p>
+            </div>
+            <div class="form-card">
+                <form id="applyForm" onsubmit="handleApplySubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label">平台名称 *</label>
+                        <input type="text" class="form-input" required placeholder="您的平台品牌名称">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">平台域名 *</label>
+                        <input type="text" class="form-input" required placeholder="例如：your-platform.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">申请认证等级 *</label>
+                        <select class="form-select" required>
+                            <option value="">请选择目标认证等级</option>
+                            <option>🥉 Bronze - 基础认证</option>
+                            <option>🥈 Silver - 银级认证</option>
+                            <option>🥇 Gold - 金级认证</option>
+                            <option>🏅 Diamond - 钻石认证</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">运营团队介绍 *</label>
+                        <textarea class="form-textarea" required placeholder="请介绍您的团队背景、运营历史、许可证信息等..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">联系人邮箱 *</label>
+                        <input type="email" class="form-input" required placeholder="contact@your-platform.com">
+                    </div>
+                    <button type="submit" class="btn-secondary" style="width:100%;justify-content:center;font-size:1.05rem;padding:16px;">
+                        📤 提交申请
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div class="page" id="page-about">
+            <div class="page-header">
+                <h1>ℹ️ 关于GUGIA</h1>
+                <p>全球USDT游戏娱乐诚信协会</p>
+            </div>
+            <div style="max-width:800px;margin:0 auto;">
+                <div class="feature-card" style="text-align:left;margin-bottom:20px;">
+                    <h3 style="text-align:center;">🌐 我们的使命</h3>
+                    <p style="text-align:center;color:var(--text-secondary);">GUGIA（Global USDT Gaming Integrity Association）是全球首个专注于USDT游戏娱乐行业的自律组织。我们的使命是建立行业标准，保护玩家权益，促进USDT娱乐生态的健康发展。</p>
+                </div>
+                <div class="cards-grid" style="grid-template-columns:1fr 1fr;">
+                    <div class="feature-card">
+                        <div class="icon-wrap">🎯</div>
+                        <h3>核心目标</h3>
+                        <p>建立USDT娱乐行业的信任基础设施，让每一位玩家都能在安全的环境中享受游戏。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-wrap">🤝</div>
+                        <h3>合作共赢</h3>
+                        <p>与全球顶级审计机构、区块链安全公司合作，为认证平台提供持续监督。</p>
+                    </div>
+                </div>
+                <p style="text-align:center;margin-top:24px;color:var(--text-muted);">
+                    📧 联系邮箱：contact@gugia.org &nbsp;|&nbsp; 📍 协会注册地：开曼群岛
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>© 2026 <strong>GUGIA</strong> — 全球USDT游戏娱乐诚信协会 · 保留所有权利</p>
+        <p style="margin-top:4px;">
+            <a href="#" onclick="navigateTo('about')">关于我们</a> ·
+            <a href="#" onclick="navigateTo('verify')">认证查询</a> ·
+            <a href="#" onclick="navigateTo('report')">举报中心</a>
+        </p>
+        <p style="margin-top:8px;font-size:0.7rem;color:var(--text-muted);">
+            ⚠️ 免责声明：本协会认证仅供参考，玩家应自行评估风险。加密货币交易存在固有风险。
+        </p>
+    </div>
+
+    <script>
+        // ============ NAVIGATION ============
+        let currentPage = 'home';
+
+        function navigateTo(pageName) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Show target page
+            const target = document.getElementById('page-' + pageName);
+            if (target) {
+                target.classList.add('active');
+                currentPage = pageName;
+                // Re-trigger animation
+                target.style.animation = 'none';
+                target.offsetHeight;
+                target.style.animation = '';
+            }
+            // Update nav active states
+            document.querySelectorAll('#navLinks button, #mobileMenu button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-page') === pageName) {
+                    btn.classList.add('active');
+                }
+            });
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Close mobile menu
+            closeMobileMenu();
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('open');
+        }
+
+        // Highlight current page nav on load
+        function updateNavHighlight() {
+            document.querySelectorAll('#navLinks button, #mobileMenu button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-page') === currentPage) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // ============ TOAST SYSTEM ============
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            const icons = { success: '✅', error: '❌', info: 'ℹ️', warning: '⚠️' };
+            toast.textContent = (icons[type] || '') + ' ' + message;
+            container.appendChild(toast);
+            // Auto remove after animation
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.remove();
+                }
+            }, 3000);
+        }
+
+        // ============ VERIFY LOGIC ============
+        function handleVerify() {
+            const query = document.getElementById('verifyQuery').value.trim();
+            const btn = document.getElementById('verifyBtn');
+            const resultDiv = document.getElementById('verifyResult');
+
+            if (!query) {
+                showToast('请输入平台名称或域名', 'warning');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = '查询中...';
+            resultDiv.innerHTML = '';
+
+            // Simulate API call
+            setTimeout(() => {
+                let resultHTML = '';
+                const lowerQuery = query.toLowerCase();
+
+                if (lowerQuery.includes('stake') || lowerQuery.includes('rollbit') || lowerQuery.includes(
+                        'bc.game') || lowerQuery.includes('cloudbet') || lowerQuery.includes('thunderpick') || lowerQuery
+                    .includes('duelbits') || lowerQuery.includes('example') || lowerQuery.includes('test')) {
+                    // Certified result
+                    resultHTML = `
+                <div class="result-card certified">
+                  <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+                    <div class="result-icon-lg">✅</div>
+                    <div style="flex:1;min-width:200px;">
+                      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                        <span style="font-size:1.8rem;font-weight:800;color:#34d399;">已认证</span>
+                        <span class="badge-level">Gold</span>
+                      </div>
+                      <h3 style="font-size:1.3rem;margin-top:4px;">${query}</h3>
+                      <p style="color:#a1a1b0;">${query.includes('.') ? query : query + '.com'}</p>
+                      <div class="result-meta">
+                        <div>信用评分：<span style="color:#34d399;">92</span>/100</div>
+                        <div>最近审计：<span>2026-05-10</span></div>
+                        <div>认证等级：<span>🥇 Gold</span></div>
+                        <div>资金储备：<span>已验证 ✅</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>`;
+                } else if (lowerQuery.includes('scam') || lowerQuery.includes('fake') || lowerQuery.includes('rug') ||
+                    lowerQuery.includes('phish') || lowerQuery.includes('bad')) {
+                    // Blacklisted result
+                    resultHTML = `
+                <div class="result-card blacklisted">
+                  <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+                    <div class="result-icon-lg">🚫</div>
+                    <div style="flex:1;min-width:200px;">
+                      <span style="font-size:1.8rem;font-weight:800;color:#f87171;">已列入黑名单</span>
+                      <h3 style="font-size:1.3rem;margin-top:4px;">${query}</h3>
+                      <p style="color:#f87171;margin-top:8px;font-size:1.05rem;">⚠️ 存在多起严重投诉，已被永久拉黑，请立即远离！</p>
+                      <div class="result-meta">
+                        <div>投诉数量：<span style="color:#f87171;">1,247</span></div>
+                        <div>列入日期：<span>2026-03-15</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>`;
+                } else {
+                    // Not found
+                    resultHTML = `
+                <div class="result-card not-found" style="text-align:center;padding:36px;">
+                  <div class="result-icon-lg">⏳</div>
+                  <h3 style="font-size:1.5rem;margin-bottom:8px;">未找到认证记录</h3>
+                  <p style="color:#a1a1b0;margin-bottom:16px;">该平台尚未申请GUGIA认证，或名称/域名输入有误。</p>
+                  <button class="btn-outline" onclick="navigateTo('apply')">→ 申请成为认证平台</button>
+                </div>`;
+                }
+
+                resultDiv.innerHTML = resultHTML;
+                btn.disabled = false;
+                btn.textContent = '查询';
+                showToast('查询完成', 'success');
+            }, 800);
+        }
+
+        // ============ REPORT FORM ============
+        function handleReportSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            showToast('举报已提交！我们会尽快核实处理，感谢您的贡献。', 'success');
+            form.reset();
+        }
+
+        // ============ APPLY FORM ============
+        function handleApplySubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            showToast('认证申请已提交！我们的团队将在3个工作日内与您联系。', 'success');
+            form.reset();
+        }
+
+        // ============ INIT ============
+        function init() {
+            updateNavHighlight();
+            // Handle hash-based navigation on load
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById('page-' + hash)) {
+                navigateTo(hash);
+            }
+        }
+
+        // Listen for hash changes
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById('page-' + hash)) {
+                navigateTo(hash);
+            }
+        });
+
+        // Update hash when navigating
+        const originalNavigateTo = navigateTo;
+        navigateTo = function(pageName) {
+            window.location.hash = pageName;
+            originalNavigateTo(pageName);
+        };
+
+        init();
+    </script>
+</body>
+</html>
